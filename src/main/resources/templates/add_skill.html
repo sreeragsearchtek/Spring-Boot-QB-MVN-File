@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--begin::Head-->
+<head><base href="">
+    <meta charset="utf-8" />
+    <title>CURATAL - Question Bank</title>
+    <meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
+    <meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular 11, VueJs, React, Laravel, admin themes, web design, figma, web development, ree admin themes, bootstrap admin, bootstrap dashboard" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" th:href="@{/styles/assets/media/logos/curatal_icon.png}" />
+    <!--begin::Fonts-->
+    <link rel="stylesheet" th:href="@{/styles/assets/fonts/google.fonts.css}" />
+    <!--end::Fonts-->
+
+    <!--begin::Global Stylesheets Bundle(used by all pages)-->
+    <link th:href="@{/styles/assets/plugins/global/plugins.bundle.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/styles/assets/css/style.bundle.css}" rel="stylesheet" type="text/css" />
+    <!--end::Global Stylesheets Bundle-->
+    
+    <link th:href="@{/styles/assets/css/dropify.css}" rel="stylesheet">
+
+    <script th:src="@{/styles/assets/js/jquery.js}"></script>
+    
+    <link rel="stylesheet" th:href="@{/styles/assets/css/alert.css}" />
+    
+    <script>
+    	$(document).ready(function(){
+    		$('.dropify').dropify();
+    	});
+    </script>
+
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+<!--begin::Main-->
+<!--begin::Root-->
+<div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="page d-flex flex-row flex-column-fluid">
+        <!--begin::Wrapper-->
+        <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+            <!--begin::Header-->
+            <div id="kt_header" class="header align-items-stretch">
+                <!--begin::Container-->
+                <div class="container-fluid d-flex align-items-stretch justify-content-between">
+
+                    <!--end::Aside mobile toggle-->
+                    <!--begin::Mobile logo-->
+                    <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+                        <a href="/viewAdminDashboard">
+                            <img alt="Logo" th:src="@{/styles/assets/media/logos/curatal_logo.png}" class="h-40px" />
+                        </a>
+                    </div>
+                    <!--end::Mobile logo-->
+                    <!--begin::Wrapper-->
+                    <div class="d-flex align-items-center justify-content-end flex-grow-1 flex-lg-grow-0">
+                        <a href="#">
+                            <img alt="Logo" th:src="@{/styles/assets/media/logos/question_bank_logo_right.png}" class="h-40px" />
+                        </a>
+                    </div>
+                    <!--end::Wrapper-->
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Header-->
+            <!--begin::Content-->
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <!--begin::Toolbar-->
+                <div class="toolbar" id="kt_toolbar">
+                    <!--begin::Container-->
+                    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+                        <!--begin::Page title-->
+                        <div class="page-title d-flex align-items-center">
+                            <!--begin::Title-->
+                            <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Add Skills
+                                <!--begin::Separator-->
+                                <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+                                <!--end::Separator-->
+                                <!--begin::Description-->
+                                <small class="text-muted fs-7 fw-bold my-1 ms-1">#</small>
+                                <!--end::Description--></h1>
+                            <!--end::Title-->
+                        </div>
+                        <!--end::Page title-->
+                        <!--begin::Actions-->
+                        <div class="d-flex align-items-center py-1">
+
+                            <!-- Button Goes Here -->
+
+                        </div>
+                        <!--end::Actions-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Toolbar-->
+                <!--begin::Post-->
+                <div class="post d-flex flex-column-fluid" id="kt_post">
+                    <!--begin::Container-->
+                    <div id="kt_content_container" class="container">
+
+                        <!-- Content goes here ! -->
+                        <div class="card mb-4 shadow">
+                            <div class="card-body">
+
+								<!-- <form id="skillFormId" action="#" th:action="@{/saveAllSkills}" th:object="${skills}" method="post">	 -->
+                           
+                                    <div class="col-12">
+                                        <div class="row mb-6 mt-2">
+                                            <div class="col-4">
+                                                <h5>Skill</h5>
+                                            </div>
+                                            <div class="col-8 ">
+                                            	<div class="row mb-6">
+													<div class="col-9">
+														<input type="text" class="form-control form-control-solid skillInputCls" placeholder="Enter Skill" required>
+													</div>
+													<div class="col-3">
+														<div class="col-12 fv-row">
+															<button type="button" class="btn btn-success btn-sm" style="border-radius: 25px;" id="addDivBtnId"> <i class="fas fa-plus"></i> Add</button>
+														</div>
+													</div>
+												</div>
+												<div id="iterativeDivId"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-12 my-4 text-center">
+                                            <button type="button" id="submitSkillBtnId" class="btn btn-sm btn-primary"><i class="fas fa-check"></i> Save</button>
+                                        </div>
+                                    </div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="card shadow">
+                        	<div class="card-body">
+                        		<div class="col-12 text-end my-4">
+                        			<a class="btn btn-light-info btn-sm" th:href="@{/skillsBulkUploadSampleCSVFile}"><span class="fas fa-download"></span> Upload Template</a>
+                        		</div>
+	                        	<form id="skillUploadForm" name="skillUploadForm">
+			                        <input id="skillFileUploadInput" class="dropify"  type="file" name="file" required/>
+			                        <div class="col-12 text-center my-5">
+			                        	<button type="button" class="btn btn-sm btn-primary" id="skillUploadBtnId" ><i class="fas fa-check"></i> Submit</button>
+			                        </div> 
+		                    	</form>
+					                    	
+		                    	<div class="upload-response">
+			                        <div id="skillFileUploadError"></div>
+			                        <div id="skillFileUploadSuccess"></div>
+			                    </div>
+			                </div>
+                        </div>
+
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Post-->
+            </div>
+            <!--end::Content-->
+            <!--begin::Footer-->
+            <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+                <!--begin::Container-->
+                <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-center">
+                    <!--begin::Copyright-->
+                    <div class="text-dark order-2 order-md-1">
+                        <span class="text-muted fw-bold me-1">2022©</span>
+                        <a href="#" target="_blank" class="text-gray-800 text-hover-primary fw-bold">Curatal</a>
+                    </div>
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Footer-->
+        </div>
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
+</div>
+<!--end::Root-->
+<!--begin::Drawers-->
+
+<!-- Modal Start -->
+<div class="modal fade" tabindex="-1" id="successModelDivId">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: rgba(0,0,0,.0000) !important;box-shadow: none !important" >
+
+            <div class="modal-body">
+                <svg class="checkmark addClass1 mb-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+	                <circle class="checkmark__circle addClass1" cx="26" cy="26" r="25" fill="none"/>
+	                <path class="checkmark__check addClass1" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="errorModelDivId">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: rgba(0,0,0,.0000) !important;box-shadow: none !important" >
+
+            <div class="modal-body">
+                <svg class="crossmark addClass2 mb-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                	<circle class="crossmark__circle addClass2" cx="26" cy="26" r="25" fill="none"/>
+				 	<path class="cross__path cross__path--right addClass2" fill="none" d="M16,16 l20,20" />
+				  	<path class="cross__path cross__path--left addClass2" fill="none" d="M16,36 l20,-20" />
+				</svg>
+				
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal End -->
+
+
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    <!--begin::Svg Icon | path: icons/duotone/Navigation/Up-2.svg-->
+    <span class="svg-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24" />
+						<rect fill="#000000" opacity="0.5" x="11" y="10" width="2" height="10" rx="1" />
+						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
+					</g>
+				</svg>
+			</span>
+    <!--end::Svg Icon-->
+</div>
+<!--end::Scrolltop-->
+<!--end::Main-->
+<!--begin::Javascript-->
+<!--begin::Global Javascript Bundle(used by all pages)-->
+<script th:src="@{/styles/assets/plugins/global/plugins.bundle.js}"></script>
+<script th:src="@{/styles/assets/js/scripts.bundle.js}"></script>
+<!--end::Global Javascript Bundle-->
+<script th:src="@{/styles/assets/js/dropify.js}"></script>
+
+<script>
+$(document).ready(function () {
+
+	var max_fields = 5; //maximum input boxes allowed
+	var wrapper = $("#iterativeDivId"); //Fields wrapper
+	var add_button = $("#addDivBtnId"); //Add button ID
+	
+	var x = 1; //initlal text box count
+	$(add_button).on("click",function (e) { //on add input button click
+		e.preventDefault();
+		if (x < max_fields) { //max input box allowed
+			x++; //text box increment
+			var str = "";
+			str += '<div class="row mb-6">';
+			str += '<div class="col-9">';
+			str += '<input type="text" class="form-control form-control-solid skillInputCls" placeholder="Enter Skill" required>';
+			str += '</div>';
+			str += '<div class="col-3">';
+			str += '<div class="col-12 fv-row">';
+			str += '<button type="button" class="btn btn-danger btn-sm" style="border-radius: 25px;" id="removeDivBtnId"> <i class="fas fa-minus"></i> Remove</button>';
+			str += '</div>';
+			str += '</div>';
+			str += '</div>';
+	    	
+			$("#iterativeDivId").append(str); //add input box
+		}
+	});
+	
+	$(wrapper).on("click", "#removeDivBtnId", function (e) { //user click on remove text
+		e.preventDefault();
+		$(this).parent('div').parent('div').parent('div').remove();
+		x--;
+	})
+});
+</script>
+
+<script>
+	$(document).ready(function(){
+		
+		$("#skillUploadBtnId").on("click",function() {
+        	
+        	var skillUploadForm = document.querySelector('#skillUploadForm');
+            var skillFileUploadInput = document.querySelector('#skillFileUploadInput');
+            var skillFileUploadError = document.querySelector('#skillFileUploadError');
+            var skillFileUploadSuccess = document.querySelector('#skillFileUploadSuccess');
+            
+            var files = skillFileUploadInput.files;
+            if(files.length === 0) {
+                /* skillFileUploadError.innerHTML = "Please select a file"; */
+                skillFileUploadError.style.display = "block";
+            }
+
+            var formData = new FormData();
+            formData.append("file", files[0]);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/bulkUploadSkills");
+
+            xhr.onload = function() {
+                console.log(xhr.responseText);
+                var response = JSON.parse(xhr.responseText);
+                if(xhr.status == 200) {
+                    skillFileUploadError.style.display = "none";
+                    /* skillFileUploadSuccess.innerHTML = "<p class='text-success'>File Uploaded Successfully.</p>"; */
+                    /* skillFileUploadSuccess.innerHTML = "<p>File Uploaded Successfully.</p><p>DownloadUrl : <a href='" + response.fileDownloadUri + "' target='_blank'>" + response.fileDownloadUri + "</a></p>"; */
+                    skillFileUploadSuccess.style.display = "block";
+                    
+                    $("#successModelDivId").modal('show')
+                    var $post1 = $(".addClass1");
+                    $post1.removeClass("animateElement");
+					$post1.toggleClass("animateElement");
+					setInterval(function(){   
+					     $post1.removeClass("animateElement");
+					  setTimeout(function(){
+					    $post1.addClass("animateElement");    
+					}, 1000);
+					}, 3000);
+					
+                    setTimeout(function () {
+                        $("#successModelDivId").modal('hide');
+                        location.reload();
+                    }, 3000);
+                    
+                } else {
+                    skillFileUploadSuccess.style.display = "none";
+                    /* skillFileUploadError.innerHTML = "<p>"+(response && response.message)+"<p>" || "Some Error Occurred"; */
+                    skillFileUploadSuccess.style.display = "block";
+                    
+                    $("#errorModelDivId").modal('show')
+                    var $post2 = $(".addClass2");
+                    $post2.removeClass("animateElement");
+					$post2.toggleClass("animateElement");
+					setInterval(function(){   
+					     $post2.removeClass("animateElement");
+					  setTimeout(function(){
+					    $post2.addClass("animateElement");    
+					}, 1000);
+					}, 3000);
+                    setTimeout(function () {
+                        $("#errorModelDivId").modal('hide');
+                        location.reload();
+                    }, 3000);
+                }
+            }
+
+            xhr.send(formData);
+			
+		});
+		
+		$("#submitSkillBtnId").on("click",function(){
+			
+			var multi_skills = "";
+			multiSkillArray = [];
+			
+			count=1;
+			
+			$('.skillInputCls').each(function(){
+				
+				if(count == 1){
+					multi_skills += $(this).val();
+				}
+				else{
+					multi_skills += ','+$(this).val();
+				}
+				
+				count = count+1;
+				
+			});
+			
+			multiSkillString = multi_skills.toString();
+
+			$.ajax({
+                type: 'POST',
+                url: '/saveAllSkills/'+multiSkillString+'',
+                dataType: 'json',
+                async: false,
+                success: function(data){
+
+                	$("#successModelDivId").modal('show')
+                	var $post1 = $(".addClass1");
+                    $post1.removeClass("animateElement");
+					$post1.toggleClass("animateElement");
+					setInterval(function(){   
+					     $post1.removeClass("animateElement");
+					  setTimeout(function(){
+					    $post1.addClass("animateElement");    
+					}, 1000);
+					}, 3000);
+					
+                    setTimeout(function () {
+                        $("#successModelDivId").modal('hide');
+                        location.reload();
+                    }, 3000);
+
+                },
+                error: function (error) {
+                	$("#errorModelDivId").modal('show')
+                    var $post2 = $(".addClass2");
+                    $post2.removeClass("animateElement");
+					$post2.toggleClass("animateElement");
+					setInterval(function(){   
+					     $post2.removeClass("animateElement");
+					  setTimeout(function(){
+					    $post2.addClass("animateElement");    
+					}, 1000);
+					}, 3000);
+                    setTimeout(function () {
+                        $("#errorModelDivId").modal('hide');
+                        location.reload();
+                    }, 3000);
+                }
+            });
+			
+		});
+		
+	});
+</script>
+
+<!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>
